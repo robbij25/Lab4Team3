@@ -35,5 +35,23 @@ namespace TestProject1
             // Assert
             Assert.Equal(DbAccessStatus.DuplicateValue, duplicateAddResult);
         }
+
+        public void TestUpdateAirport()
+        {
+            // Arrange
+            IBusinessLogic businessLogic = new BusinessLogic();
+            String id = "KATW";
+            String city = "Appleton";
+            DateTime date = new DateTime(2023, 3, 3, 14, 0, 0);
+            int rating  = 3;
+            int newRating = 5;
+
+            // Act
+            businessLogic.AddAirport(id, city, date, rating);
+            businessLogic.EditAirport(id, city, date, newRating);
+
+            // Assert
+            Assert.Equal(newRating, businessLogic.FindAirport(id).Rating);
+        }
     }
 }
