@@ -53,5 +53,22 @@ namespace TestProject1
             // Assert
             Assert.Equal(newRating, businessLogic.FindAirport(id).Rating);
         }
+
+        public void TestDeleteAirport()
+        {
+            // Arrange
+            IBusinessLogic businessLogic = new BusinessLogic();
+            String id = "KATW";
+            String city = "Appleton";
+            DateTime date = new DateTime(2023, 3, 3, 14, 0, 0);
+            int rating  = 3;
+
+            // Act
+            businessLogic.AddAirport(id, city, date, rating);
+            bool removedAirport = businessLogic.DeleteAirport(id);
+
+            // Assert
+            Assert.True(removedAirport); // Checks if deletion was successful
+        }
     }
 }
