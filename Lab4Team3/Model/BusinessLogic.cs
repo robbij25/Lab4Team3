@@ -17,7 +17,7 @@ namespace Lab2Maui.AirportModel
         public static readonly string EmptyField = "All fields must be filled out.";
 
     }
-    internal class BusinessLogic : IBusinessLogic
+    public class BusinessLogic : IBusinessLogic
     {
 
         private ObservableCollection<Airport> airports;

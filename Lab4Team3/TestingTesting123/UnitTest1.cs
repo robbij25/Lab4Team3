@@ -19,14 +19,21 @@ namespace TestProject1
             Assert.Equal(15, result);
         }
 
-        public void TestAddAirport()
+        public void TestAddDuplicateAirport()
         {
             // Arrange
-                
+            IBusinessLogic businessLogic = new BusinessLogic();
+            String id = "KATW";
+            String city = "Appleton";
+            DateTime date = new DateTime(2023, 3, 3, 14, 0, 0);
+            int rating  = 3;
 
             // Act
+            String firstAddResult = businessLogic.AddAirport(id, city, date, rating);
+            String duplicateAddResult = businessLogic.AddAirport(id, city, date, rating);
 
             // Assert
+            Assert.Equal(DbAccessStatus.DuplicateValue, duplicateAddResult);
         }
     }
 }
